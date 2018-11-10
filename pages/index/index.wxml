@@ -1,0 +1,10 @@
+<!--pages/free/free.wxml-->
+<import src="/templates/loading/loading.wxml" />
+
+<view wx:if="{{!notFirstLoad}}" class='first-load'>
+  <template is="first-load"></template>
+</view>
+
+<view wx:else>
+
+</view>

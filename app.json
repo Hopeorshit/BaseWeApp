@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6263",
+    "navigationBarTitleText": "BaseWeAPP",
+    "navigationBarTextStyle": "white"
+  }
+}
