@@ -8,8 +8,8 @@
 import { Config } from '../utils/config.js'
 class Token {
   constructor() {
-    this.verifyUrl = Config.restUrl + 'token/verify_token',
-    this.tokenUrl = Config.restUrl + 'token/get_token' 
+    this.verifyUrl = Config.restUrl + 'token/verify',
+    this.tokenUrl = Config.restUrl + 'token/get' 
   }
   verify() {
     var token = wx.getStorageSync('token');
@@ -35,7 +35,8 @@ class Token {
           },
           method: "POST",
           success: function (res) {
-            wx.setStorageSync('token', res.data.token);
+            wx.setStorageSync('token', res.data.data.token);
+            wx.setStorageSync('user', res.data.data.user);
             callBack && callBack(res.data.token);
           }
         })
@@ -52,7 +53,7 @@ class Token {
       },
       method: 'GET',
       success: function (res) { 
-        if(!res.data){
+        if (res.data.data.is_expired){
          that.getTokenFromServer();
         }
       },
